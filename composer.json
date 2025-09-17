@@ -1,0 +1,19 @@
+{
+    "name": "united-software-platform/clean-arch-gen",
+    "description": "PHP code generator for clean architecture projects",
+    "type": "library",
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/http-foundation": "^7.3"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "friendsofphp/php-cs-fixer": "^3.87"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
