@@ -4,11 +4,14 @@
     "type": "library",
     "minimum-stability": "stable",
     "require": {
-        "symfony/http-foundation": "^7.3"
+        "symfony/http-foundation": "^7.3",
+        "symfony/console": "^7.3",
+        "twig/twig": "^3.21"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1",
-        "friendsofphp/php-cs-fixer": "^3.87"
+        "friendsofphp/php-cs-fixer": "^3.87",
+        "deptrac/deptrac": "^4.2"
     },
     "license": "MIT",
     "autoload": {

@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+
+use {{ application_namespace }}\{{ action }}\Output;
+use {{ application_namespace }}\{{ action }}\OutputPortInterface;
+use {{ presentation_namespace }}ViewInterface;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+/**
+ * @implements ViewInterface<JsonResponse>
+ */
+final class JsonListAgentPresent implements OutputPortInterface, ViewInterface
+{
+    /** @var Output[] */
+    private array $models;
+
+    public function present(Output ...$models): void
+    {
+        $this->models = $models;
+    }
+
+    public function view(): object
+    {
+        return new JsonResponse($this->models);
+    }
+}

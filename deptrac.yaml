@@ -1,0 +1,31 @@
+deptrac:
+  paths:
+    - ./src
+  layers:
+    - name: Domain
+      collectors:
+        - type: glob
+          value: src/**/Domain/**/*.php
+    - name: Application
+      collectors:
+        - type: glob
+          value: src/**/Application/**/*.php
+    - name: Infrastructure
+      collectors:
+        - type: glob
+          value: src/**/Infrastructure/**/*.php
+    - name: Presentation
+      collectors:
+        - type: glob
+          value: src/**/Presentation/**/*.php
+  ruleset:
+    Domain: []
+    Application:
+      - Domain
+    Infrastructure:
+      - Application
+      - Domain
+    Presentation:
+      - Application
+      - Domain
+  skip_violations: {}

@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ domain_model_namespace }};
+
+use {{ domain }} App\Agent\Domain\Repository\ModelRepositoryInterface;
+
+final readonly class {{domain_model}}Repository implements {{domain_model}}RepositoryInterface
+{
+    public function findAll(): array
+    {
+        return [
+            new {{domain_model}}(
+                id: 'id-model-one',name: 'Model One',
+            ),
+            new {{domain_model}}(
+                id: 'id-model-two',name: 'Model Two',
+            ),
+            new {{domain_model}}(
+                id: 'id-model-tree',name: 'Model Tree',
+            ),
+        ];
+    }}
+}}

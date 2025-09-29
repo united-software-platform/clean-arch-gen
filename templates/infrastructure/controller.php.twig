@@ -1,0 +1,24 @@
+<?php
+
+declare(strict_types=1);
+
+use {{ application_namespace }}\{{ action }}\Input;
+use {{ application_namespace }}\{{ action }}\InputPortInterface;
+use {{ presentation_namespace }}\ViewInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+final readonly class ListModelController
+{
+    public function __construct(
+        private InputPortInterface $inputPort,
+        /** @var ViewInterface<JsonResponse> */
+        private ViewInterface $outputPort,
+    ) {}
+
+    public function __invoke(): JsonResponse
+    {
+        $this->inputPort->execute(new Input());
+
+        return $this->outputPort->view();
+    }
+}

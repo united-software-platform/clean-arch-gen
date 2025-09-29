@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use {{ domain_model_repository_namespace }};
+use {{ domain_model_namespace }};
+
+final readonly class {{ action }}{{ domain_model }}UseCase implements InputPortInterface
+{
+    public function __construct(
+        private {{ domain_model_repository}} $modelRepository,
+        private OutputPortInterface $outputPort
+    ) {}
+
+    public function execute(Input $input): void
+    {
+        $data = $this->modelRepository->findAll();
+
+        $this->outputPort->present(...array_map(
+            static fn ({{ domain_model }} $model): Output => new Output(
+                id: $model->id,
+                name: $model->name,
+            ),
+            $data
+        ));
+    }
+}}

@@ -1,0 +1,11 @@
+<?php
+
+declare(strict_types=1);
+
+use {{ domain_model_namespace }};
+
+interface {{domain}}RepositoryInterface
+{
+    /** @return {{ domain_model }}[] */
+    public function findAll(): array;
+}

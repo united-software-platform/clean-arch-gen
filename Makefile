@@ -17,6 +17,8 @@ shell:
 
 analyze-code:
 	@$(PHP_EXEC) vendor/bin/phpstan analyse --memory-limit 1G
+	@$(PHP_EXEC) vendor/bin/deptrac analyze --report-uncovered --config-file=deptrac.yaml
+	#@$(PHP_EXEC) vendor/bin/deptrac debug:layer "Domain" --config-file=deptrac.yaml
 
 fix-style:
 	@PHP_CS_FIXER_IGNORE_ENV=1 $(PHP_EXEC) vendor/bin/php-cs-fixer --show-progress=dots -v fix

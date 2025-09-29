@@ -2,6 +2,7 @@
 .idea
 .php-cs-fixer.cache
 .phpunit.result.cache
+.deptrac.cache
 
 vendor
 /var/
